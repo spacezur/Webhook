@@ -11,7 +11,7 @@ Open up command prompt and do the following:
 After that close the command prompt and open up the folder and write on the location files "cmd" hit enter after.
 
 Open config.json and change the token.
-Open index.js and change the lines 23, 24 and 30
+Open index.js and change the lines 23, 24 and 30 || 27 , 33 to change timer
 
 Write the following:
 >npm i discord.js
