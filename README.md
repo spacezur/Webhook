@@ -17,5 +17,7 @@ Write the following:
 >npm init -y
 >npm i discord.js
 
+After that drag the files beside .md file in the folder.
+
 To run everything:
 >nodemon index.js
