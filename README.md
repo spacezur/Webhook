@@ -1,5 +1,6 @@
 # Webhook
 
+Open the README.md file to read it in detail.
 Make sure to install node.js and visual studio code.
 
 https://nodejs.org
