@@ -30,7 +30,7 @@ client.on(Events.MessageCreate, async interaction => {
     if (interaction.channelId == '1058420590689669131') {
         setTimeout(function() {
             interaction.delete()
-        }, 5 * (1000 * 60))
+        }, 10 * (1000 * 60))
     }
 })
 
