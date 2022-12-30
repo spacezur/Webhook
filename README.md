@@ -1,5 +1,20 @@
 # Webhook
 
-Make sure to install node.js[https://nodejs.org] and visual studio code[https://code.visualstudio.com]
-Open up the folder with command and write
+Make sure to install node.js and visual studio code.
 
+https://nodejs.org
+https://code.visualstudio.com
+
+Open up command prompt and do the following:
+>npm i nodemon -g
+
+After that close the command prompt and open up the folder and write on the location files "cmd" hit enter after.
+
+Open config.json and change the token.
+Open index.js and change the lines 23, 24 and 30
+
+Write the following:
+>npm i discord.js
+
+To run everything:
+>nodemon index.js
