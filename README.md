@@ -14,6 +14,7 @@ Open config.json and change the token.
 Open index.js and change the lines 23, 24 and 30 || 27 , 33 to change timer
 
 Write the following:
+>npm init -y
 >npm i discord.js
 
 To run everything:
