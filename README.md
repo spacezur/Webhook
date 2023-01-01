@@ -16,7 +16,7 @@ Open index.js and change the lines 23, 24 and 30 || 27 , 33 to change timer
 
 Write the following:
 >npm init -y
->npm i discord.js
+>npm i discord.js dotenv
 
 After that drag the files beside README.md file in the folder.
 
