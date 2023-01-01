@@ -13,10 +13,8 @@ client.once(Events.ClientReady, () => {
 })
 
 client.on(Events.MessageCreate, async interaction => {
-    if (interaction.webhookId == null) {
-        if (!interaction.author.bot) {
-            interaction.delete()
-        }
+    if (interaction.guild || !interaction.webhookId) {
+        interaction.delete()
         return
     }
 
