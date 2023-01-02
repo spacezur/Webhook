@@ -32,7 +32,7 @@ client.once(Events.ClientReady, () => {
 client.on(Events.MessageCreate, async interaction => {
     if (interaction.author.bot && !interaction.webhookId) return
     if (!interaction.webhookId || interaction.channelId != "1059307482616442930") {
-        interaction.delete()
+        interaction.delete().catch(() => {})
         return
     }
 
@@ -44,7 +44,7 @@ client.on(Events.MessageCreate, async interaction => {
         client.commands.get(command).execute(client, interaction, args)
     }
 
-    interaction.delete()
+    interaction.delete().catch(() => {})
 })
 
 client.login(token)
