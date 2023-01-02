@@ -47,14 +47,4 @@ client.on(Events.MessageCreate, async interaction => {
     interaction.delete()
 })
 
-/**
-    interaction.channel.messages.cache.map(async message => {
-        message.embeds.map(async embeds => {
-            if (embeds.data.footer.text == "1234567890") {
-                message.delete()
-            }
-        })
-    })
-*/
-
 client.login(token)
