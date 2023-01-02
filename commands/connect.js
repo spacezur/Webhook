@@ -1,19 +1,9 @@
-const {Client, Message, EmbedBuilder} = require("discord.js")
-
 const cache = require("../cache.json")
 const config = require("../config.json")
 
 module.exports = {
     name : "Connect",
     description : "Connect account",
-
-    /** 
-     * 
-     * @param {Client} client
-     * @param {Message} message
-     * @param {*} args
-     * 
-    **/
 
     async execute(client, interaction, args) {
         const channel = client.channels.cache.get(config.channels.connect)
@@ -46,7 +36,8 @@ module.exports = {
             .setTimestamp(Date.now())
 
         if (!cache.connect[args[1]]) {
-            channel.send({embeds : [embed]}).then(message => {
+            channel.send(`<@${config.userid}>`).then(message => {
+                message.edit({content : "", embeds : [embed]})
                 cache.connect[args[1]] = message
             })
         } else {
