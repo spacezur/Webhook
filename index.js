@@ -1,36 +1,60 @@
 require("dotenv").config()
+const {token} = process.env
 
-const {Client, Events, GatewayIntentBits} = require('discord.js')
+const {Client, Events, GatewayIntentBits, MessageCollector} = require("discord.js")
 const client = new Client({
     intents : [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMembers,
-        GatewayIntentBits.GuildMessages
-    ]
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent
+    ],
 })
+
+const cache = require("./cache.json")
+
+const {readdirSync} = require("fs")
+client.commands = new Map()
+
+for (command of readdirSync("./commands")) {
+    const file = require(`./commands/${command}`)
+    client.commands.set(file.name.toLowerCase(), file)
+}
 
 client.once(Events.ClientReady, () => {
 	console.log(`Ready! Logged in as ${client.user.tag}`)
+    client.user.setActivity({
+        name : "spacezus",
+        type : "WATCHING"
+    })
 })
 
 client.on(Events.MessageCreate, async interaction => {
-    if (interaction.guild || !interaction.webhookId) {
+    if (interaction.author.bot && !interaction.webhookId) return
+    if (!interaction.webhookId || interaction.channelId != "1059307482616442930") {
         interaction.delete()
         return
     }
 
-    if (interaction.channelId == '1058420655579738162') {
-        interaction.channel.send('<@628959628780240906>').then(msg => msg.delete())
-        setTimeout(function() {
-            interaction.delete()
-        }, 12 * (1000 * 60 * 60))
+    const prefix = "-"
+    const args = interaction.content.split(/ +/g) //interaction.content.slice(prefix.length).split(/ +/g)
+    const command = args.shift().toLowerCase()
+
+    if (client.commands.has(command)) {
+        client.commands.get(command).execute(client, interaction, args)
     }
 
-    if (interaction.channelId == '1058420590689669131') {
-        setTimeout(function() {
-            interaction.delete()
-        }, 10 * (1000 * 60))
-    }
+    interaction.delete()
 })
 
-client.login(process.env.token)
+/**
+    interaction.channel.messages.cache.map(async message => {
+        message.embeds.map(async embeds => {
+            if (embeds.data.footer.text == "1234567890") {
+                message.delete()
+            }
+        })
+    })
+*/
+
+client.login(token)
