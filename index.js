@@ -36,8 +36,7 @@ client.on(Events.MessageCreate, async interaction => {
         return
     }
 
-    const prefix = "-"
-    const args = interaction.content.split(/ +/g) //interaction.content.slice(prefix.length).split(/ +/g)
+    const args = interaction.content.split(/ +/g)
     const command = args.shift().toLowerCase()
 
     if (client.commands.has(command)) {
