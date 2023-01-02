@@ -19,6 +19,8 @@ Write the following:
 >npm i discord.js dotenv
 
 After that drag the files beside README.md file in the folder.
+You can edit the config.json file with your own information
 
 To run everything:
+>node .
 >nodemon index.js
