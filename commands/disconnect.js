@@ -1,3 +1,5 @@
+const {EmbedBuilder} = require("discord.js")
+
 const cache = require("../cache.json")
 const config = require("../config.json")
 
