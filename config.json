@@ -1,0 +1,10 @@
+{
+    "token" : "INPUT BOT TOKEN HERE",
+    
+    "userid" : "628959628780240906",
+    "channels" : {
+        "command" : "1059307482616442930",
+        "connect" : "1059272361943236670",
+        "disconnect" : "1058420655579738162"
+    }
+}
