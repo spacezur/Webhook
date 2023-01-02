@@ -1,19 +1,9 @@
-const {Client, Message, EmbedBuilder} = require("discord.js")
-
 const cache = require("../cache.json")
 const config = require("../config.json")
 
 module.exports = {
     name : "Disconnect",
     description : "Disconnect account",
-
-    /** 
-     * 
-     * @param {Client} client
-     * @param {Message} message
-     * @param {*} args
-     * 
-    **/
 
     async execute(client, interaction, args) {
         const channel = client.channels.cache.get(config.channels.disconnect)
